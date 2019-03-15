@@ -9,7 +9,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: pretty 
 
-paginate: 2                  # 페이징 처리 개수
+paginate: 10                  # 페이징 처리 개수
 paginate_path: "/page:num/"   # URL 규칙
 
 # Minima date format
