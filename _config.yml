@@ -43,8 +43,6 @@ minima:
     #   instance: example.com
 
 comments: true
-disqus:
-  shortname: pilot376-github-io
 
 # Build settings
 markdown: kramdown
