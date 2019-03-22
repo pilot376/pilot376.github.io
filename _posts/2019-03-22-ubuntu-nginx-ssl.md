@@ -39,7 +39,7 @@ server {
     listen      80;
     listen [::]:80;
     
-    server_name yourdomain.com;
+    server_name example.com;
 }
 ~~~
 
@@ -55,8 +55,8 @@ $ sudo service nginx reload
 
 ## SSL 인증 획득하기
 ~~~bash
-$ sudo certbot --nginx -d example.com -d www.example.com
-$ sudo certbot --nginx -d yourdomain.com
+$ sudo certbot --nginx -d example.com -d www.example.com      # 여러 개
+$ sudo certbot --nginx -d example.com                         # 한 개
 ~~~
 
 ---
