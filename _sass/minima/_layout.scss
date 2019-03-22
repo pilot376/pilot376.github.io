@@ -298,3 +298,11 @@
   width: -webkit-calc(50% - (#{$spacing-unit} / 2));
   width:         calc(50% - (#{$spacing-unit} / 2));
 }
+
+
+/**
+ * Grid disqus_thread
+ */
+#disqus_thread {
+  padding-top:50px;
+}
