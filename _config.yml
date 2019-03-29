@@ -6,7 +6,7 @@ description: "소소한 기록들"
 
 lang : ko
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://pilot376.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://pilot376.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: pretty 
 
 paginate: 10                  # 페이징 처리 개수
