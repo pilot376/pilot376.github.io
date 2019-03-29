@@ -291,5 +291,10 @@
  * tag-archives
  */
 .tag-archives {
-  
+	border-top: 1px solid $grey-color-light;
+	padding-top: $spacing-unit;
+
+	h3 {
+		@include relative-font-size(1.25);
+	}
 }
