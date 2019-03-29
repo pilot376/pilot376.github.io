@@ -274,6 +274,7 @@
 
 	li {
 		display: inline-block;
+		padding-bottom: $spacing-unit * 0.3;
 
 		a {
 			display:block;
@@ -291,10 +292,13 @@
  * tag-archives
  */
 .tag-archives {
-	border-top: 1px solid $grey-color-light;
-	padding-top: $spacing-unit;
-
+	
 	h3 {
 		@include relative-font-size(1.25);
+	}
+
+	.archive-group {
+		padding-top: $spacing-unit;
+		border-top: 1px solid $grey-color-light;
 	}
 }
