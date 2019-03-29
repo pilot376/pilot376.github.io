@@ -206,9 +206,14 @@
 .post-list {
   margin-left: 0;
   list-style: none;
+  padding-top: $spacing-unit;
 
   > li {
-    margin-bottom: $spacing-unit;
+    margin-bottom: $spacing-unit * 2;
+
+    > p {
+      color:#666;
+    }
   }
 }
 
