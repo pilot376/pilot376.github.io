@@ -12,7 +12,7 @@ permalink: /about/
 
 <div class="area-profile">
 	<img src="/assets/img/profile.png" alt="프로필 이미지" width="100" height="100">
-	<p>Front-End & UI 개발을 . 축구와 게임을 좋아합니다.</p>
+	<p>Front-End & UI 개발을 합니다. 축구와 게임을 좋아합니다.</p>
 </div>
 
 --- 
