@@ -221,7 +221,6 @@
 
 	h2 {
 		@include relative-font-size(1.75);
-		padding-top: $spacing-unit;
 		word-break: break-all;
 
 		@media screen and (min-width: $on-large) {
@@ -231,7 +230,6 @@
 
 	h3 {
 		@include relative-font-size(1.375);
-		padding-top: $spacing-unit;
 		word-break: break-all;
 
 		@media screen and (min-width: $on-large) {
@@ -241,7 +239,6 @@
 
 	h4 {
 		@include relative-font-size(1.125);
-		padding-top: $spacing-unit;
 		word-break: break-all;
 
 		@media screen and (min-width: $on-large) {

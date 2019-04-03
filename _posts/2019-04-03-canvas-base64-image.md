@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "canvas를 이용하여 base64 이미지 만들기"
-tag: [html, canvas, base64]
+tag: [html, canvas, javascript, base64]
 ---
 
 ## Drawing an image to the canvas
