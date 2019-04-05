@@ -20,7 +20,7 @@ error spawnSync ./gradlew EACCES. Run CLI with --verbose flag for more details.
 
 > Make sure you have an Android emulator running or a device connected and have
 
-위 문장때문에 디바이스 연결 문제라고 판단했지만, 원인은 전혀 다른 곳에 있었다.
+위 문장 때문에 디바이스 연결 문제라고 판단했지만, 원인은 전혀 다른 곳에 있었다.
 (안드로이드 디바이스에서는 빌드가 되고, react native에서는 빌드가 안됨)
 
 이 에러는 android/gradlew 권한 설정으로 해결할 수 있었다.
