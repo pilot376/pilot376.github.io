@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "react-native run-android 실행 시 device를 못 찾는 에러"
+title: "react-native run-android 에러"
 tag: [javascript, react native, android]
 ---
 
