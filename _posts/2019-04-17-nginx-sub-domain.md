@@ -46,6 +46,11 @@ server {
 }
 ~~~
 
+서버를 재부팅한다.
+~~~bash
+sudo /etc/init.d/nginx restart
+~~~
+
 ---
 
 ## SSL 추가
