@@ -14,7 +14,8 @@ tag: [android]
 
 ## 인터넷 권한 추가
 1. app > manifests > AndroidManidest.xml 파일 오픈
-2. <application></application> 코드 상단에 권한 코드 추가
+2. &lt;application&gt;&lt;/application&gt; 코드 상단에 권한 코드 추가
+
 ~~~xml 
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
@@ -26,8 +27,8 @@ tag: [android]
 ## Webview Layout 추가
 1. app > res > layout > activity_main.xml 파일 오픈
 2. Design -> Text 모드로 변경
-3. <android.support.constraint.ConstraintLayout></android.support.constraint.ConstraintLayout> 태그 내에 웹뷰 추가
-    android:id="@+id/mainWebview" 값은 MainActivity.java 에서 사용할 ID값
+3. &lt;android.support.constraint.ConstraintLayout&gt;&lt;/android.support.constraint.ConstraintLayout&gt; 태그 내에 웹뷰 추가 (android:id="@+id/mainWebview" 값은 MainActivity.java 에서 사용할 ID값)
+
 ~~~xml
 <WebView
     android:id="@+id/mainWebview"
@@ -40,6 +41,7 @@ tag: [android]
 ## 웹뷰 URL 호출 코드 추가
 1. app > java > my.package.name > MainActivity.java 파일 오픈
 2. 웹뷰 내 URL 호출 코드 추가 (클래스 임포트가 필요한 경우 Alt + Enter로 추가)
+
 ~~~java
 public class MainActivity extends AppCompatActivity {
 
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 ## Back 버튼 기능 추가
 1. app > java > my.package.name > MainActivity.java 파일 오픈
 2. onBackPressed 메서드 추가 (클래스 임포트가 필요한 경우 Alt + Enter로 추가)
+
 ~~~java
 @Override
 public void onBackPressed() {
@@ -87,6 +90,7 @@ public void onBackPressed() {
 ## Native Header 제거
 1. app > manifests > AndroidManidest.xml 파일 오픈
 2. theme 어트리뷰트 수정
+
 ~~~xml
 android:theme="@style/AppTheme" <!-- As-is -->
 android:theme="@style/Theme.AppCompat.NoActionBar" <!-- To-be -->
@@ -97,6 +101,7 @@ android:theme="@style/Theme.AppCompat.NoActionBar" <!-- To-be -->
 ## 세로 모드 고정
 1. app > manifests > AndroidManidest.xml 파일 오픈
 2. screenOrientation 어트리뷰트 추가
+
 ~~~xml
 android:screenOrientation="portrait"
 ~~~
