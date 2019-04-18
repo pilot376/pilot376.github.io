@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "react-native run-android 에러"
-tag: [javascript, react native, android]
+tag: [javascript, react-native, android]
 ---
 
 react native 환경설정 가이드대로 모두 세팅했지만, 안드로이드 디바이스에 빌드 시 에러가 발생했다.
