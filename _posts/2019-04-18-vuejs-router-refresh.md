@@ -22,3 +22,7 @@ this.$router.push({name: 'PageB', params: { key: 'bbb' }}); // 미작동
 ~~~xml
 <router-view :key="$route.fullPath"/>
 ~~~
+
+---
+
+* 참고 : [https://stackoverflow.com/questions/41301099/do-we-have-router-reload-with-vue-router](https://stackoverflow.com/questions/41301099/do-we-have-router-reload-with-vue-router)
