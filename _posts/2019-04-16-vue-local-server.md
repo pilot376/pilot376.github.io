@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "vue local server IP로 접근하기"
-tag: [javascript, vue.js, webpack]
+tag: [javascript, vue-js, webpack]
 ---
 
 아래의 명령어로 vue 프로젝트를 생성 & 실행 시 localhost:8080 URL에서 화면을 확인할 수 있다.
