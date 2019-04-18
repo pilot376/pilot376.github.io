@@ -314,3 +314,29 @@
 		border-top: 1px solid $grey-color-light;
 	}
 }
+
+
+
+/**
+ * pagination
+ */
+.pagination {
+	text-align: center;
+
+	a {
+		padding: 5px;
+	}
+
+	em {
+		padding: 5px;
+		text-decoration: underline;
+		font-weight: bold;
+		font-style: normal;
+		color: $orange-color;
+	}
+
+	span {
+		padding: 5px;
+		color:#999;
+	}
+}
