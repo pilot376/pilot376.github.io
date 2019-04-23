@@ -7,15 +7,17 @@ permalink: /about/
 <style>
 	.area-profile {position:relative;min-height:100px;padding-left:120px;margin-bottom:50px;}
 	.area-profile img {position:absolute;top:0;left:0;border-radius: 100px;}
-	.area-profile p {display: flex;height: 100px; align-items: center;}
+    .area-profile ul {padding:0;margin:0;list-style: none;}
+    .area-profile li {position:relative;padding:0 0 0 10px;margin:0;list-style: none;}
+    .area-profile li:after {content: "";position:absolute;top:50%;left:0; width: 4px;height:4px;margin-top:-2px;background:#000;border-radius: 4px;}
 </style>
 
 <div class="area-profile">
 	<img src="/assets/img/profile.png" alt="프로필 이미지" width="100" height="100">
-	<p>Front-End & UI 개발을 주 업무로 하고 있습니다. 축구와 게임을 좋아합니다.</p>
+    <p>Front-End & UI 개발자입니다. 축구와 게임을 좋아합니다.</p>
+    <ul>
+        <li>개인 웹사이트 : <a href="https://ooo.ne.kr">ooo.ne.kr</a></li>
+        <li>구 블로그 : <a href="https://pilot376.tistory.com">pilot376.tistory.com</a></li>
+        <li>이메일 : <a href="mailto:pilot376@paran.com">pilot376@paran.com</a></li>
+    </ul>
 </div>
-
---- 
-
-### 웹사이트
-* [ooo.ne.kr](https://ooo.ne.kr)
