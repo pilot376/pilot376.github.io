@@ -340,3 +340,21 @@
 		color:#999;
 	}
 }
+
+
+
+/**
+ * adFit
+ */
+#adFit {
+	position:relative;
+	height:250px;
+	padding: 20px 0;
+
+	.inner {
+		position:absolute;
+		top:0;
+		left:50%;
+		margin-left:-150px;
+	}
+}
