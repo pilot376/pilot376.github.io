@@ -100,7 +100,7 @@ android:theme="@style/Theme.AppCompat.NoActionBar" <!-- To-be -->
 
 ## 세로 모드 고정
 1. app > manifests > AndroidManidest.xml 파일 오픈
-2. &lt;activity&gt; 태그 screenOrientation 어트리뷰트 추가
+2. &lt;activity&gt; 태그에 screenOrientation 어트리뷰트 추가
 
 ~~~xml
 android:screenOrientation="portrait"
