@@ -8,7 +8,7 @@ permalink: /about/
 	.area-profile {position:relative;min-height:100px;padding-left:120px;margin-bottom:50px;}
 	.area-profile img {position:absolute;top:0;left:0;border-radius: 100px;}
     .area-profile ul {padding:0;margin:0;list-style: none;}
-    .area-profile li {position:relative;padding:0 0 15px 10px;margin:0;list-style: none;}
+    .area-profile li {position:relative;padding:10px 0 10px 10px;margin:0;list-style: none;}
     .area-profile li:after {content: "";position:absolute;top:10px;left:0; width: 4px;height:4px;background:#000;border-radius: 4px;}
 </style>
 
