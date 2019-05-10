@@ -9,6 +9,8 @@ Google Play Console에 앱 업로드 시 버전을 갱신하지 않으면 다음
 > 업로드 실패  
 이미 버전 코드가 1인 APK 또는 Android App Bundle이 있으므로 다른 버전 코드를 사용해야 합니다.
 
+---
+
 이 오류는 아래와 같이 수정할 수 있다.
 
 1. build.gradle 파일 오픈
