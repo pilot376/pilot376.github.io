@@ -5,15 +5,15 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,minimum-scale=1,user-scalable=no,target-densitydpi=medium-dpi">
 	<title>canvas를 이용하여 base64 이미지 만들기</title>
 	<link rel="shortcut icon" href="/common/favicon.ico" type="image/x-icon">
-
-	<style>
-		canvas {display:block;width:40px;height:40px;margin-top: 50px;}
-	</style>
 </head>
 <body>
 	
+	<h1>img 태그</h1>
 	<img id="source" src="./icon.png">
-	<canvas id="canvas"></canvas>
+
+	<h1>canvas 태그</h1>
+	<p>base64 코드는 브라우저 console 창에서 확인</p>
+	<canvas id="canvas" width="40" height="40"></canvas>
 	
 	<script>
 		window.addEventListener("load", function(event) {
