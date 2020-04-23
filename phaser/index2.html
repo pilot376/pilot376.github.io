@@ -1,0 +1,54 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Making your first Phaser 3 Game - Part 1</title>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.18.1/dist/phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="phaser-example"></div>
+
+<script type="text/javascript">
+
+var config = {
+    type: Phaser.WEBGL,
+    parent: 'phaser-example',
+    scene: {
+        preload: preload,
+        create: create
+    }
+};
+
+var game = new Phaser.Game(config);
+
+function preload ()
+{
+    // this.load.image('eye', 'assets/pics/lance-overdose-loader-eye.png');
+}
+
+function create ()
+{
+    var recte = this.add.rectangle(40, 40, 50, 50, 0xff66ff).setInteractive();
+
+    recte.on('pointerdown', function (pointer) {
+
+        console.log(pointer);
+
+    });
+
+    
+}
+
+
+
+
+</script>
+
+</body>
+</html>
