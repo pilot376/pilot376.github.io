@@ -35,8 +35,8 @@
   <p>json 트리를 depth에 맞게 테이블로 변환해줍니다. API 명세서 작성 시 활용하세요.</p>
   <ul>
     <li>json 입력 후 테이블 변환 버튼을 누르세요.</li>
-    <li>결과 테이블을 드래그 & 복사하여 위키에 붙여넣으세요.</li>
-    <li>위키에서 최종으로 데이터 테이블을 편집하세요.</li>
+    <li>결과 테이블을 드래그 & 복사하여 위키에 붙여넣으세요. ("&lt;&lt;&lt;&lt;&lt;" 부터 "&gt;&gt;&gt;&gt;&gt;" 까지 복사해야 손실되는 컬럼이 없습니다.)</li>
+    <li>위키에서 최종으로 테이블 데이터를 편집하세요.</li>
   </ul>
   <textarea id="inputJson"></textarea>
   <button type="button" id="toTable">테이블 변환</button>
@@ -92,6 +92,7 @@
     // 미리 계산해놓은 가로 세로 사이즈대로 테이블 렌더링
     const renderTable = () => {
       let tableHtml = "<strong>테이블 변환 결과</strong>";
+      tableHtml += "<p>&lt;&lt;&lt;&lt;&lt;</p>";
       tableHtml += "<table>";
       
         for (let i = 0; i < len; i++) {
@@ -103,6 +104,7 @@
         tableHtml += "</tr>";
       }
       tableHtml += "</table>";
+      tableHtml += "<p>&gt;&gt;&gt;&gt;&gt;</p>";
       
       document.querySelector("#result").innerHTML = tableHtml;
 
