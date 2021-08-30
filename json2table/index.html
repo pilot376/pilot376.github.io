@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Json To Table</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 10px;
+    }
+    #inputJson {
+      width: 100%;
+      height: 200px;
+      box-sizing: border-box;
+    }
+    #toTable {
+      width: 100%;
+      height: 50px;
+      box-sizing: border-box;
+    }
+    #result {
+      padding-top: 30px;
+    }
+    table {
+      border: 1px solid #ccc;
+    }
+    table td {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>json 입력 후 테이블 변환 버튼을 누르세요.</li>
+    <li>결과 테이블을 드래그 & 복사하여 위키에 붙여넣으세요.</li>
+    <li>위키에서 최종으로 데이터 테이블을 편집하세요. (배열로 내려오는 데이터의 index 및 반복 요소 등)</li>
+  </ul>
+  <textarea id="inputJson"></textarea>
+  <button type="button" id="toTable">테이블 변환</button>
+  <div id="result"></div>
+
+  <script>
+    let tableArr = [];
+    let len = 0;
+    let depth = 0;
+    let maxDepth = 0;
+
+
+    // json 트리 순회 함수
+    // 순회하면서 테이블로 렌더링 할 요소만 걸러서 tableArr에 담는다.
+    const traverse = (obj) => {
+      for (var key in obj) {
+        // 테이블 변환 대상 배열에 추가
+        tableArr.push({
+          key : key,
+          targetId : `id${len}-${depth}`
+        })
+        len++;
+        
+        // 자식에 객체가 있는 경우 반복 호출
+        if (obj[key] !== null && typeof(obj[key])=="object") {
+          depth++;
+          maxDepth = (depth > maxDepth) ? depth : maxDepth;
+          traverse(obj[key]);
+        }
+
+        // 최종까지 순회를 완료하면 테이블 렌더링 함수 실행
+        if (key === "zIsLast") {
+          renderTable();
+        }
+      }
+      if (depth !== 0) {
+        depth--;
+      }
+    }
+
+
+    // 테이블을 먼저 렌더링
+    // 미리 계산해놓은 가로 세로 사이즈대로 테이블 렌더링
+    const renderTable = () => {
+      let tableHtml = "<strong>테이블 변환 결과</strong>";
+      tableHtml += "<table>";
+      
+        for (let i = 0; i < len; i++) {
+        tableHtml += "<tr>";
+        
+          for (let j = 0; j <= maxDepth; j++) {
+            tableHtml += `<td id="id${i}-${j}"></td>`;
+          }
+        tableHtml += "</tr>";
+      }
+      tableHtml += "</table>";
+      
+      document.querySelector("#result").innerHTML = tableHtml;
+
+      insertJsonKey();
+    }
+
+
+    // 렌더링된 테이블에 데이터를 insert
+    const insertJsonKey = () => {
+      for (let i = 0; i < tableArr.length; i++) {
+        let item = tableArr[i];
+        let targetId = item.targetId;
+        
+        if (item.key !== "zIsLast") {
+          document.querySelector(`#${targetId}`).innerHTML = item.key;
+        }
+      }
+    }
+
+
+    // 테이블 변환 버튼 이벤트 바인딩
+    document.querySelector("#toTable").addEventListener("click", () => {
+      try {
+        let json = JSON.parse(document.querySelector("#inputJson").value);
+        json.zIsLast = true;
+
+        tableArr = [];
+        len = 0;
+        depth = 0;
+        maxDepth = 0;
+
+        traverse(json);
+      } catch (e) {
+        alert("JSON 형태가 올바른지 확인하세요!");
+      }
+    }, false);
+  </script>
+</body>
+</html>
