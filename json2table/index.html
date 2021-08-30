@@ -54,15 +54,18 @@
     const traverse = (obj) => {
       for (var key in obj) {
         let regExp = /^[0-9]/;
+        let keyName;
         
         // key가 숫자로 시작하는 경우 키 값 앞에 배열임을 표시
         if (!!regExp.exec(key)) {
-          key = `Array Index : ${key}`;
+          keyName = `${key} (Array Index)`;
+        } else {
+          keyName = key;
         }
         
         // 테이블 변환 대상 배열에 추가
         tableArr.push({
-          key : key,
+          key : keyName,
           targetId : `id${len}-${depth}`
         })
         len++;
