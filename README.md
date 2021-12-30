@@ -1,6 +1,6 @@
 # pilot376.github.io
 
-![profile](/_images/profile.png){: width="100" height="100"}
+![profile](./_images/profile.png){: width="100" height="100"}
 
 Front-End & UI 개발자입니다. 게임과 운동을 좋아합니다.
 
