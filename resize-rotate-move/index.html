@@ -212,7 +212,7 @@
 
         var newW = initW, newH = initH, newX = initX, newY = initY;
 
-        if (!!event.shiftKey) {
+        if (!!event.shiftKey && targetId.indexOf("mid") === -1) {
           if (targetId === "right-top") {
             rotatedWDiff = rotatedWDiff * -1;
           }
@@ -309,10 +309,6 @@
     // handle rotation
     var rotate = document.getElementById("rotate");
     rotate.addEventListener('mousedown', function (event) {
-      // if (event.target.className.indexOf("point") > -1) {
-      //     return;
-      // }
-
       initX = this.offsetLeft;
       initY = this.offsetTop;
       mousePressX = event.clientX;
