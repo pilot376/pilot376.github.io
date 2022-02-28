@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예상 총점</title>
+</head>
+<body>
+    <div>
+        <strong>홈</strong>
+        <input type="text" id="homeGF" /> : <input type="text" id="homeGA" />
+    </div>
+    <div>
+        <strong>원정</strong>
+        <input type="text" id="awayGF" /> : <input type="text" id="awayGA" />
+    </div>
+    <div>
+        <button id="btnCalc">계산</button>
+    </div>
+
+    <script>
+        document.querySelector("#btnCalc").addEventListener('click', () => {
+            let homeGF = document.querySelector("#homeGF").value * 1;
+            let awayGA = document.querySelector("#awayGA").value * 1;
+            let awayGF = document.querySelector("#awayGF").value * 1;
+            let homeGA = document.querySelector("#homeGA").value * 1;
+            alert(((homeGF + awayGA) / 2) + ((awayGF + homeGA) / 2));
+        }, false);
+    </script>
+</body>
+</html>
