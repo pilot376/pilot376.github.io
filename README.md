@@ -4,7 +4,7 @@ Front-End & UI 개발자입니다. 게임과 운동을 좋아합니다.
 
 ## Work
 
-*   [카페24 에디봇](https://store.cafe24.com/apps/795)
+*   [카페24 에디봇](https://edibot.cafe24.com/)
 *   [NS Mall](http://nsmall.com)
 *   [제비뽑기](https://play.google.com/store/apps/details?id=com.ooo.lottery)
 *   [심플 주사위](https://play.google.com/store/apps/details?id=kr.ne.ooo.dice)
