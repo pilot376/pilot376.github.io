@@ -1,8 +1,13 @@
 (async function(){
-  var sTime = new Date().getTime();
-  console.log(sTime);
+  window.cfaObject = '//cfa-js.cafe24.com/cfa.js?v=1736829845374';
   var src_path = window.cfaObject;
+  var idx_server_end = src_path.indexOf("/cfa.js");
+  var goServer = src_path.substring(0,idx_server_end);
+
   console.log(src_path);
+  console.log(idx_server_end);
+  console.log(goServer);
+
       // var idx_server_end = src_path.indexOf("/cfa.js");
       // var goServer = src_path.substring(0,idx_server_end);
     
