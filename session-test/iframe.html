@@ -9,23 +9,23 @@
   <script>
     class SessionManager {
       constructor() {
-        this.sessions = new Map();
         this.client_session_id = this.getOrCreateClientSessionId();
         this.setupMessageListener();
       }
 
       getOrCreateClientSessionId() {
-        if (this.sessions.has('current')) {
-          return this.sessions.get('current');
-        }
-
-        const array = new Uint8Array(16);
-        crypto.getRandomValues(array);
-        const client_session_id = 'test_' + Array.from(array)
-            .map(b => b.toString(16).padStart(2, '0'))
-            .join('');
+        let client_session_id = localStorage.getItem('test_client_session_id');
         
-        this.sessions.set('current', client_session_id);
+        if (!client_session_id) {
+            const array = new Uint8Array(16);
+            crypto.getRandomValues(array);
+            client_session_id = 'test_' + Array.from(array)
+                .map(b => b.toString(16).padStart(2, '0'))
+                .join('');
+            
+            localStorage.setItem('test_client_session_id', client_session_id);
+        }
+        
         return client_session_id;
       }
 
