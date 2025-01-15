@@ -21,6 +21,9 @@
 
       // Permanent ID 가져오기
       const getPermanentId = () => {
+        console.log('==========');
+        console.log(storageKey);
+        console.log(localStorage.getItem(storageKey));
         if (localStorage.getItem(storageKey)) {
           return localStorage.getItem(storageKey);
         } else {
