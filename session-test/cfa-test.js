@@ -1,5 +1,5 @@
 (function() {
-  const iframe = document.getElementById("iframe");
+  const iframe = document.getElementById("iframeCFATestSession");
 
   iframe.onload = () => {
     iframe.contentWindow.postMessage(
