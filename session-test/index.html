@@ -8,6 +8,7 @@
 <body>
   <iframe src="iframe.html" id="iframe"></iframe>
   <script>
+    console.log(document.getElementById('iframe'));
     document.getElementById('iframe').contentWindow.postMessage({type: 'REQUEST_SESSION'}, '*')
   </script>
   <!-- <script src="index.js"></script>
