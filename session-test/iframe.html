@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>seestion</title>
+</head>
+<body>
+  <script>
+    class SessionManager {
+      constructor() {
+        this.client_session_id = this.getOrCreateClientSessionId();
+        // this.setupMessageListener();
+        // this.sendInitialSession();
+      }
+
+      getOrCreateClientSessionId() {
+        let client_session_id = sessionStorage.getItem('test_client_session_id');
+        if (!client_session_id) {
+          client_session_id = 'test_' + crypto.randomUUID();
+          sessionStorage.setItem('test_client_session_id', client_session_id);
+        }
+        return client_session_id;
+      }
+
+      // isAllowedOrigin(origin) {
+      //   const allowedDomains = [
+      //     'https://a.cafe24.com',
+      //     'https://b.cafe24.com',
+      //     'http://localhost:3000'  // 개발용
+      //   ];
+      //   return allowedDomains.includes(origin);
+      // }
+
+      // setupMessageListener() {
+      //   window.addEventListener('message', (event) => {
+      //     if (!this.isAllowedOrigin(event.origin)) {
+      //       console.warn('Unauthorized origin:', event.origin);
+      //       return;
+      //     }
+
+      //     if (event.data?.type === 'REQUEST_SESSION') {
+      //       this.sendSessionInfo(event.origin);
+      //     }
+      //   });
+      // }
+
+      // sendSessionInfo(targetOrigin) {
+      //   const sessionInfo = {
+      //     type: 'SESSION_INFO',
+      //     data: {
+      //       client_session_id: this.client_session_id,
+      //       timestamp: new Date().toISOString()
+      //     }
+      //   };
+      //   window.parent.postMessage(sessionInfo, targetOrigin);
+      // }
+
+      // sendInitialSession() {
+      //   window.addEventListener('load', () => {
+      //     if (window.parent !== window) {
+      //       console.log('Session manager ready');
+      //     }
+      //   });
+      // }
+    }
+
+    // 세션 매니저 인스턴스 생성
+    const sessionManager = new SessionManager();
+    console.log('Client Session ID:', sessionManager.client_session_id);
+  </script>
+</body>
+</html>
