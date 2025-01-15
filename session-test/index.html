@@ -6,9 +6,9 @@
   <title>Document</title>
 </head>
 <body>
-  <iframe src="iframe.html"></iframe>
+  <iframe src="iframe.html" id="iframe"></iframe>
   <script>
-    window.parent.postMessage({type: 'REQUEST_SESSION'}, '*')
+    document.getElementById('iframe').contentWindow.postMessage({type: 'REQUEST_SESSION'}, '*')
   </script>
   <!-- <script src="index.js"></script>
   <script>
