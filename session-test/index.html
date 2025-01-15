@@ -8,8 +8,15 @@
 <body>
   <iframe src="iframe.html" id="iframe"></iframe>
   <script>
-    console.log(document.getElementById('iframe'));
-    document.getElementById('iframe').contentWindow.postMessage({type: 'REQUEST_SESSION'}, '*')
+    const iframe = document.getElementById('iframe');
+
+    iframe.onload = () => {
+      iframe.contentWindow.postMessage({
+        type: 'REQUEST_SESSION'
+      }, 'http://localhost:3000');
+    };
+
+    // document.getElementById('iframe').contentWindow.postMessage({type: 'REQUEST_SESSION'}, '*')
   </script>
   <!-- <script src="index.js"></script>
   <script>
