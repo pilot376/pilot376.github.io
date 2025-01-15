@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>seestion</title>
+  <title>session</title>
 </head>
 
 <body>
   <script>
     (function () {
-      const storageKey = "test_client_session_id";
+      const cookieName = "test_client_session_id";
 
       // Permanent ID 생성 함수
       const generatePermanentId = () => {
@@ -19,19 +19,29 @@
         return Array.from(array).map(byte => byte.toString(16).padStart(2, '0')).join('');
       };
 
+      // 쿠키 가져오기
+      const getCookie = (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+      };
+
+      // 쿠키 설정하기
+      const setCookie = (name, value) => {
+        const date = new Date();
+        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000)); // 1년
+        document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/; SameSite=None; Secure`;
+      };
+
       // Permanent ID 가져오기
       const getPermanentId = () => {
-        console.log('==========');
-        console.log(storageKey);
-        console.log(localStorage.getItem(storageKey));
-        if (localStorage.getItem(storageKey)) {
-          return localStorage.getItem(storageKey);
-        } else {
-          // Permanent ID가 없으면 생성하고 로컬 스토리지에 저장
-          const newId = generatePermanentId();
-          localStorage.setItem(storageKey, newId);
-          return newId;
+        let id = getCookie(cookieName);
+        if (!id) {
+          id = generatePermanentId();
+          setCookie(cookieName, id);
         }
+        return id;
       };
 
       // postMessage로 부모 창에 데이터 전달
