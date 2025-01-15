@@ -40,9 +40,10 @@
           // }
 
           console.log(event.data)
-          // if (event.data?.type === 'REQUEST_SESSION') {
+          if (event.data?.type === 'REQUEST_SESSION') {
           //   this.sendSessionInfo(event.origin);
-          // }
+            console.log('REQUEST_SESSION')
+          }
         });
       }
 

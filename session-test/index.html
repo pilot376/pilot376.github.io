@@ -7,6 +7,9 @@
 </head>
 <body>
   <iframe src="iframe.html"></iframe>
+  <script>
+    window.parent.postMessage({type: 'REQUEST_SESSION'}, '*')
+  </script>
   <!-- <script src="index.js"></script>
   <script>
     // Initialize the agent at application startup.
