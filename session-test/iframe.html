@@ -1,62 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>seestion</title>
 </head>
+
 <body>
   <script>
-    class SessionManager {
-      constructor() {
-        this.client_session_id = this.getOrCreateClientSessionId();
-        this.setupMessageListener();
-      }
+    (function () {
+      const storageKey = "test_client_session_id";
 
-      getOrCreateClientSessionId() {
-        let client_session_id = localStorage.getItem('test_client_session_id');
-        
-        if (!client_session_id) {
-            const array = new Uint8Array(16);
-            crypto.getRandomValues(array);
-            client_session_id = 'test_' + Array.from(array)
-                .map(b => b.toString(16).padStart(2, '0'))
-                .join('');
-            
-            localStorage.setItem('test_client_session_id', client_session_id);
+      // Permanent ID 생성 함수
+      const generatePermanentId = () => {
+        const array = new Uint8Array(16);
+        window.crypto.getRandomValues(array);
+        return Array.from(array).map(byte => byte.toString(16).padStart(2, '0')).join('');
+      };
+
+      // Permanent ID 가져오기
+      const getPermanentId = () => {
+        if (localStorage.getItem(storageKey)) {
+          return localStorage.getItem(storageKey);
+        } else {
+          // Permanent ID가 없으면 생성하고 로컬 스토리지에 저장
+          const newId = generatePermanentId();
+          localStorage.setItem(storageKey, newId);
+          return newId;
         }
-        
-        return client_session_id;
-      }
+      };
 
-      setupMessageListener() {
-        window.addEventListener('message', (event) => {
-          // if (!this.isAllowedOrigin(event.origin)) {
-          //     console.warn('Unauthorized origin:', event.origin);
-          //     return;
-          // }
+      // postMessage로 부모 창에 데이터 전달
+      const permanentId = getPermanentId();
+      const data = {
+        type: "SESSION_INFO",
+        data: { client_session_id: permanentId }
+      };
 
-          if (event.data?.type === 'REQUEST_SESSION') {
-            this.sendSessionInfo(event.origin);
-          }
-        });
-      }
-
-      sendSessionInfo(targetOrigin) {
-        const sessionInfo = {
-          type: 'SESSION_INFO',
-          data: {
-            client_session_id: this.client_session_id,
-            timestamp: new Date().toISOString()
-          }
-        };
-        window.parent.postMessage(sessionInfo, targetOrigin);
-      }
-    }
-
-    // 세션 매니저 인스턴스 생성
-    const sessionManager = new SessionManager();
-    // console.log('Client Session ID:', sessionManager.client_session_id);
+      parent.postMessage(data, '*');
+    })();
   </script>
 </body>
+
 </html>
