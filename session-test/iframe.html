@@ -10,7 +10,7 @@
     class SessionManager {
       constructor() {
         this.client_session_id = this.getOrCreateClientSessionId();
-        // this.setupMessageListener();
+        this.setupMessageListener();
         // this.sendInitialSession();
       }
 
@@ -32,18 +32,19 @@
       //   return allowedDomains.includes(origin);
       // }
 
-      // setupMessageListener() {
-      //   window.addEventListener('message', (event) => {
-      //     if (!this.isAllowedOrigin(event.origin)) {
-      //       console.warn('Unauthorized origin:', event.origin);
-      //       return;
-      //     }
+      setupMessageListener() {
+        window.addEventListener('message', (event) => {
+          // if (!this.isAllowedOrigin(event.origin)) {
+          //     console.warn('Unauthorized origin:', event.origin);
+          //     return;
+          // }
 
-      //     if (event.data?.type === 'REQUEST_SESSION') {
-      //       this.sendSessionInfo(event.origin);
-      //     }
-      //   });
-      // }
+          console.log(event.data)
+          // if (event.data?.type === 'REQUEST_SESSION') {
+          //   this.sendSessionInfo(event.origin);
+          // }
+        });
+      }
 
       // sendSessionInfo(targetOrigin) {
       //   const sessionInfo = {
