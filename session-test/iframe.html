@@ -34,11 +34,11 @@
       // postMessage로 부모 창에 데이터 전달
       const permanentId = getPermanentId();
       const data = {
-        type: "SESSION_INFO",
-        data: { client_session_id: permanentId }
+        method: "setPermanentId",
+        params: { id: permanentId }
       };
 
-      parent.postMessage(data, '*');
+      parent.postMessage(JSON.stringify(data), '*');
     })();
   </script>
 </body>

@@ -6,9 +6,34 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <script>
+    window.addEventListener('message', (event) => {
+    // const allowedOrigin = 'https://yongkyu33.mycafe24.com';
+    // 메시지를 보낸 출처(origin) 검증
+    // if (event.origin !== allowedOrigin) {
+    //     console.warn('허용되지 않은 출처에서의 메시지:', event.origin);
+    //     return;
+    // }
+
+	// console.log(event.data);
+
+    try {
+        // JSON 파싱
+        const messageData = JSON.parse(event.data);
+
+        // 메시지 구조 검증
+        if (messageData.method === 'setPermanentId' && messageData.params?.id) {
+            console.log(messageData.params.id);
+            localStorage.setItem('permanentId', messageData.params.id);
+        }
+    } catch (error) {
+        console.error('메시지 파싱 중 오류 발생:', error);
+    }
+});
+  </script>
   <iframe src="iframe.html" id="iframeCFATestSession"></iframe>
-  <script src="cfa-test.js"></script>
+  
+  <!-- <script src="cfa-test.js"></script> -->
   <!-- <script src="index.js"></script>
   <script>
     // Initialize the agent at application startup.
