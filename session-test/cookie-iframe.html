@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Session</title>
+</head>
+<body>
+  <script>
+    (function () {
+      const cookieKey = "test_cookie_session_id";
+
+      // 쿠키 생성 함수
+      const generateSessionId = () => {
+        const array = new Uint8Array(16);
+        window.crypto.getRandomValues(array);
+        return Array.from(array).map(byte => byte.toString(16).padStart(2, '0')).join('');
+      };
+
+      // 쿠키 설정 함수
+      const setCookie = (value) => {
+        const currentDomain = window.location.hostname.split('.').slice(-2).join('.');
+        document.cookie = `${cookieKey}=${value}; path=/; domain=.${currentDomain}`;
+      };
+
+      // 쿠키 가져오기 함수
+      const getCookie = () => {
+        const cookies = document.cookie.split(';');
+        const sessionCookie = cookies.find(c => c.trim().startsWith(`${cookieKey}=`));
+        return sessionCookie ? sessionCookie.split('=')[1] : null;
+      };
+
+      // 세션 ID 가져오기 또는 생성
+      const getSessionId = () => {
+        console.log('=== Cookie Session ===');
+        let sessionId = getCookie();
+        
+        if (!sessionId) {
+          sessionId = generateSessionId();
+          setCookie(sessionId);
+        }
+        
+        console.log('Cookie Session ID:', sessionId);
+        return sessionId;
+      };
+
+      // postMessage로 부모 창에 데이터 전달
+      const sessionId = getSessionId();
+      const data = {
+        method: "setCookieSessionId",
+        params: { 
+          id: sessionId,
+          cookie: document.cookie 
+        }
+      };
+
+      parent.postMessage(data, '*');
+    })();
+  </script>
+</body>
+</html> 
