@@ -16,6 +16,12 @@
       }, '*');
     };
 
+    window.addEventListener('message', (event) => {
+      if (event.data?.type === 'SESSION_INFO') {
+        console.log('Received client session ID:', event.data.data.client_session_id);
+      }
+    });
+
     // document.getElementById('iframe').contentWindow.postMessage({type: 'REQUEST_SESSION'}, '*')
   </script>
   <!-- <script src="index.js"></script>

@@ -39,24 +39,22 @@
           //     return;
           // }
 
-          console.log(event.data)
           if (event.data?.type === 'REQUEST_SESSION') {
-          //   this.sendSessionInfo(event.origin);
-            console.log('REQUEST_SESSION')
+            this.sendSessionInfo(event.origin);
           }
         });
       }
 
-      // sendSessionInfo(targetOrigin) {
-      //   const sessionInfo = {
-      //     type: 'SESSION_INFO',
-      //     data: {
-      //       client_session_id: this.client_session_id,
-      //       timestamp: new Date().toISOString()
-      //     }
-      //   };
-      //   window.parent.postMessage(sessionInfo, targetOrigin);
-      // }
+      sendSessionInfo(targetOrigin) {
+        const sessionInfo = {
+          type: 'SESSION_INFO',
+          data: {
+            client_session_id: this.client_session_id,
+            timestamp: new Date().toISOString()
+          }
+        };
+        window.parent.postMessage(sessionInfo, targetOrigin);
+      }
 
       // sendInitialSession() {
       //   window.addEventListener('load', () => {
