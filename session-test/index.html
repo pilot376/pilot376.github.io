@@ -13,7 +13,7 @@
     iframe.onload = () => {
       iframe.contentWindow.postMessage({
         type: 'REQUEST_SESSION'
-      }, 'http://localhost:3000');
+      }, '*');
     };
 
     // document.getElementById('iframe').contentWindow.postMessage({type: 'REQUEST_SESSION'}, '*')
