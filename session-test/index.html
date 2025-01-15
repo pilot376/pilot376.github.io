@@ -6,24 +6,9 @@
   <title>Document</title>
 </head>
 <body>
+  
   <iframe src="iframe.html" id="iframe"></iframe>
-  <script>
-    const iframe = document.getElementById('iframe');
-
-    iframe.onload = () => {
-      iframe.contentWindow.postMessage({
-        type: 'REQUEST_SESSION'
-      }, '*');
-    };
-
-    window.addEventListener('message', (event) => {
-      if (event.data?.type === 'SESSION_INFO') {
-        console.log('Received client session ID:', event.data.data.client_session_id);
-      }
-    });
-
-    // document.getElementById('iframe').contentWindow.postMessage({type: 'REQUEST_SESSION'}, '*')
-  </script>
+  <script src="cfa-test.js"></script>
   <!-- <script src="index.js"></script>
   <script>
     // Initialize the agent at application startup.

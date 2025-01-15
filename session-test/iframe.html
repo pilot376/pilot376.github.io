@@ -29,15 +29,6 @@
         return client_session_id;
       }
 
-      // isAllowedOrigin(origin) {
-      //   const allowedDomains = [
-      //     'https://a.cafe24.com',
-      //     'https://b.cafe24.com',
-      //     'http://localhost:3000'  // 개발용
-      //   ];
-      //   return allowedDomains.includes(origin);
-      // }
-
       setupMessageListener() {
         window.addEventListener('message', (event) => {
           // if (!this.isAllowedOrigin(event.origin)) {
@@ -61,14 +52,6 @@
         };
         window.parent.postMessage(sessionInfo, targetOrigin);
       }
-
-      // sendInitialSession() {
-      //   window.addEventListener('load', () => {
-      //     if (window.parent !== window) {
-      //       console.log('Session manager ready');
-      //     }
-      //   });
-      // }
     }
 
     // 세션 매니저 인스턴스 생성
