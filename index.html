@@ -9,7 +9,7 @@
   <h1>Hello World</h1>
   <script>
     window.addEventListener('message', (event) => {
-      const allowedOrigin = 'https://edibot-editor-dev.cafe24.com';
+      const allowedOrigin = 'https://yongkyu33.mycafe24.com';
       // 메시지를 보낸 출처(origin) 검증
       if (event.origin !== allowedOrigin) {
         return;
@@ -21,15 +21,15 @@
         const messageData = JSON.parse(event.data);
 
         // 메시지 구조 검증
-        if (messageData.method === 'setIds' && messageData.params?.id) {
-          sessionStorage.setItem('permanentId', messageData.params.id);
+        if (messageData.method === 'setPermanentId' && messageData.params?.id) {
+          localStorage.setItem('permanentId', messageData.params.id);
         }
       } catch (error) {
         console.error('메시지 파싱 중 오류 발생:', error);
       }
     });
   </script>
-  <iframe src="https://edibot-editor-dev.cafe24.com/admin/session-test" style="width:0;height:0;"></iframe>
+  <iframe src="https://yongkyu33.mycafe24.com/generate_permanent_id.php" style="width:0;height:0;"></iframe>
 </body>
 
 </html>
