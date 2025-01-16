@@ -9,7 +9,7 @@
   <h1>Hello World</h1>
   <script>
     window.addEventListener('message', (event) => {
-      const allowedOrigin = 'https://edibot-backend-local.com';
+      const allowedOrigin = 'http://edibot-backend-local.com';
       // 메시지를 보낸 출처(origin) 검증
       if (event.origin !== allowedOrigin) {
         return;
@@ -29,11 +29,7 @@
       }
     });
   </script>
-  <iframe 
-    src="https://edibot-backend-local.com/admin/session-test" 
-    style="width:0;height:0;"
-    referrerpolicy="no-referrer-when-downgrade"
-  ></iframe>
+  <iframe src="http://edibot-backend-local.com/admin/session-test" style="width:0;height:0;"></iframe>
 </body>
 
 </html>
