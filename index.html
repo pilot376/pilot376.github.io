@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Hello World</title>
 </head>
+
 <body>
   <h1>Hello World</h1>
+  <script>
+    window.addEventListener('message', (event) => {
+      const allowedOrigin = 'https://edibot-backend-local.com';
+      // 메시지를 보낸 출처(origin) 검증
+      if (event.origin !== allowedOrigin) {
+        return;
+      }
+
+      console.log(event.data);
+      try {
+        // JSON 파싱
+        const messageData = JSON.parse(event.data);
+
+        // 메시지 구조 검증
+        if (messageData.method === 'setIds' && messageData.params?.id) {
+          sessionStorage.setItem('permanentId', messageData.params.id);
+        }
+      } catch (error) {
+        console.error('메시지 파싱 중 오류 발생:', error);
+      }
+    });
+  </script>
+  <iframe src="https://edibot-backend-local.com/admin/session-test" style="width:0;height:0;"></iframe>
 </body>
+
 </html>
